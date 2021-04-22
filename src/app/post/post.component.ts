@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
 import {Post} from '../app.component';
 
 @Component({
@@ -6,6 +6,13 @@ import {Post} from '../app.component';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent {
+export class PostComponent implements OnInit{
  @Input() post!: Post;
+ @ContentChild('readingInfo', {static: true}) readingInfo: ElementRef;
+
+ ngOnInit() {
+   console.log(this.readingInfo)
+ }
+
+
 }

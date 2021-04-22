@@ -23,7 +23,6 @@ export class PostFormComponent {
         text: this.text
       };
 
-
       this.onAdd.emit(post);
 
       this.title = this.text = '';
