@@ -11,5 +11,9 @@
     *ngFor="let p of posts"
     [post]="p"
   >
+    <small *ngIf="p.text.length >= 300; else short">≈ 1+ minute read</small>
+    <ng-template #short>
+      <small>less than minute read</small>
+    </ng-template>
   </app-post>
 </div>
