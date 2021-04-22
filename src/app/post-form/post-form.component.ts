@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {Post} from '../app.component';
 
 @Component({
@@ -10,10 +10,12 @@ export class PostFormComponent {
 
   @Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>();
 
+  @ViewChild('titleInput', {static: false}) titleRef: ElementRef;
+  @ViewChild('textInput', {static: false}) textRef: ElementRef;
+
   title = '';
   text = '';
 
-  // tslint:disable-next-line:typedef
   addPost() {
     if (this.text.trim() && this.title.trim()) {
       const post: Post = {
@@ -25,6 +27,10 @@ export class PostFormComponent {
       this.onAdd.emit(post);
 
       this.title = this.text = '';
+    }else if (this.title === '') {
+      this.titleRef.nativeElement.focus();
+    }else if (this.text === '') {
+      this.textRef.nativeElement.focus();
     }
   }
 }

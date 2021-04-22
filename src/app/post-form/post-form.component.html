@@ -4,13 +4,16 @@
     class="form-control"
     placeholder="Enter post title"
     [(ngModel)]="title"
+    #titleInput
   >
   <input
     type="text"
     class="form-control"
     placeholder="Enter post text"
     [(ngModel)]="text"
+    #textInput
   >
 
   <button class="btn" (click)="addPost()">Add post</button>
+<!--  <button class="btn" (click)="focusTitle()">focus</button>-->
 </div>
