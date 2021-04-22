@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 
 export interface Post {
-  title: string
-  text: string
-  id?: number
+  title: string;
+  text: string;
+  id?: number;
 }
 
 @Component({
@@ -14,9 +14,12 @@ export interface Post {
 export class AppComponent {
 
   posts: Post[] = [
-    {title: 'This is first post', text: 'This is first post text lorem', id: 1},
-    {title: 'Definitely cool post heading', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quia!', id: 2}
+    {title: 'Definitely cool post heading', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quia!', id: 0}
     ];
 
+  // tslint:disable-next-line:typedef
+  updatePosts(post: Post) {
+     this.posts.unshift(post);
+  }
 }
 
