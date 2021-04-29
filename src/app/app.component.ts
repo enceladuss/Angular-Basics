@@ -7,6 +7,8 @@ import {Component, OnInit, Output} from '@angular/core';
 })
 
 export class AppComponent implements OnInit {
+
+  isVisible = true;
   ngOnInit() {
 
   }
