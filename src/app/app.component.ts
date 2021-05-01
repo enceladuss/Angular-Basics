@@ -8,5 +8,6 @@ import {Component, OnInit, Output} from '@angular/core';
 
 export class AppComponent  {
   e: number = Math.E;
+  str = 'hello world';
 }
 
