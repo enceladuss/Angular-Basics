@@ -1,5 +1,13 @@
 <div class="container">
   <h1>Angular</h1>
 
-  <p>{{ 10 | mult:20}}</p>
+  <input type="text" [(ngModel)]="search">
+  <label for="textSearch" class="checkbox-label">
+    <input type="checkbox" id="textSearch" (change)="searchInText = !searchInText" checked>
+    Also search in description
+  </label>
+  <div *ngFor="let post of posts | filter:search:searchInText" class="card">
+    <h2>{{post.title}}</h2>
+    <p>{{post.text}}</p>
+  </div>
 </div>

@@ -78,4 +78,13 @@ textarea {
 hr {
   margin: .5rem 0;
 }
-
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  input {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    margin-right: 10px;
+  }
+}
