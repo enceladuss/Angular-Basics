@@ -6,11 +6,7 @@ import {Component, OnInit, Output} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
-
-  isVisible = true;
-  ngOnInit() {
-
-  }
+export class AppComponent  {
+  e: number = Math.E;
 }
 
