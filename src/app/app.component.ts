@@ -1,20 +1,17 @@
-import {Component, OnInit, Output} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component} from '@angular/core';
+import {AppCounterService} from './services/app-counter.service';
 
 
 @Component({
   selector: 'app-root',
+  providers: [AppCounterService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent  {
 
-  date: Observable<Date> = new Observable(obs => {
-    setInterval(() => {
-      obs.next(new Date());
-    }, 1000);
-  });
+  constructor(public appCounterService: AppCounterService) {}
 
 }
 

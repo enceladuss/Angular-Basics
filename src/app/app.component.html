@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Angular</h1>
 
-  <p>Date: {{ date | async | date: 'd LLLL YYYY HH:mm:ss '}}</p>
+  <h2>Counter: {{appCounterService.counter}}</h2>
+  <div class="btn" (click)="appCounterService.increase()">+</div>
+  <div class="btn" (click)="appCounterService.decrease()">-</div>
 </div>
