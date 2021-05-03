@@ -1,7 +1,17 @@
 <div class="container">
   <h1>Angular</h1>
 
-  <h2>Counter: {{appCounterService.counter}}</h2>
-  <div class="btn" (click)="appCounterService.increase()">+</div>
-  <div class="btn" (click)="appCounterService.decrease()">-</div>
+  <div class="card">
+    <h2>Counter: {{appCounterService.counter}}</h2>
+    <div class="btn" (click)="appCounterService.increase()">+</div>
+    <div class="btn" (click)="appCounterService.decrease()">-</div>
+  </div>
+
+  <app-counter></app-counter>
+
+  <div class="card">
+    <h2>Counter: {{localCounterService.counter}}</h2>
+    <div class="btn" (click)="localCounterService.increase()">+</div>
+    <div class="btn" (click)="localCounterService.decrease()">-</div>
+  </div>
 </div>
