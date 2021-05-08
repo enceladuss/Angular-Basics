@@ -114,3 +114,10 @@ textarea {
 hr {
   margin: .5rem 0;
 }
+
+p {
+  &.error {
+    color: red;
+  }
+}
+
