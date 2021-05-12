@@ -6,6 +6,7 @@ import {AboutComponent} from './about/about.component';
 import {PostsComponent} from './posts/posts.component';
 import {PostComponent} from './post/post.component';
 import {AboutExtraComponent} from './about-extra/about-extra.component';
+import {ErrorPageComponent} from './error-page/error-page.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,7 +14,10 @@ const routes: Routes = [
       {path: 'extra', component: AboutExtraComponent}
     ]},
   {path: 'posts', component: PostsComponent},
-  {path: 'posts/:id', component: PostComponent}
+  {path: 'posts/:id', component: PostComponent},
+  {path: 'error', component: ErrorPageComponent},
+  /** ALWAYS MUST BE LAST ROUTE **/
+ {path: '**', redirectTo: '/error'}
 ];
 
 @NgModule({
