@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {animate, group, state, style, transition, trigger} from '@angular/animations';
+import {animate, group, query, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +16,16 @@ import {animate, group, state, style, transition, trigger} from '@angular/animat
       })),
       transition('start => end', animate(450)),
       transition('end => start', animate('450ms ease-in-out')),
-      transition('* => special', [
-        style({background: 'pink'}),
-        animate('1s'),
+      transition('special <=> *', [
+        group([
+          query('h4', animate(500, style({
+            color: 'fff',
+            fontSize: '0.5rem'
+          }))),
+          style({background: 'pink'}),
+          animate('1s'),
+        ])
+
       ]),
       // void => *
       transition(':enter', [
@@ -54,5 +61,13 @@ export class AppComponent {
 
   moveAnimation(): void {
     this.boxState = this.boxState === 'start' ? 'end' : 'start';
+  };
+
+  animationStarted(event: any):void {
+    console.log('start', event)
+  }
+
+  animationDone(event: any):void {
+    console.log('end', event)
   }
 }
