@@ -16,11 +16,26 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       })),
       transition('start => end', animate(450)),
       transition('end => start', animate('450ms ease-in-out')),
-      transition('* <=> special', [
-        style({opacity: 0}),
+      transition('* => special', [
+        style({background: 'pink'}),
         animate('1s'),
+      ]),
+      // void => *
+      transition(':enter', [
+        style({opacity: 0, transform: 'translateX(-50%)'}),
+        animate('0.5s ease-out', style({
+          background: 'red',
+          opacity: '1',
+          transform: 'translateX(0)'
+        }))
+      ]),
+      // * => void
+      transition(':leave', [
         style({opacity: 1}),
-        animate('1s')
+        animate('0.5s ease-out', style({
+          opacity: '0',
+          transform: 'scale(1.2)'
+        }))
       ])
     ])
   ]
@@ -28,6 +43,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class AppComponent {
 
   boxState = 'start';
+
+  visible = true;
 
   moveAnimation(): void {
     this.boxState = this.boxState === 'start' ? 'end' : 'start';
