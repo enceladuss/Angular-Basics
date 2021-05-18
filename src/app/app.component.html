@@ -1,5 +1,6 @@
 <div class="wrap">
   <button class="btn" (click)="moveAnimation()">Play Animation</button>
+  <button class="btn" (click)="boxState = 'special'">Set special state</button>
   <hr/>
-  <div class="box" [@box]="boxState"> {{ boxState }} </div>
+  <div class="box" [@box]="boxState"><h4> {{ boxState }} </h4></div>
 </div>
