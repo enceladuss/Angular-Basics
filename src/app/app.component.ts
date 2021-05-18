@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {animate, group, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -31,11 +31,17 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       ]),
       // * => void
       transition(':leave', [
-        style({opacity: 1}),
-        animate('0.5s ease-out', style({
-          opacity: '0',
-          transform: 'scale(1.2)'
-        }))
+        style({opacity: 1, fontWeight: 'bold', color: '#000'}),
+        group([
+          animate('0.5s ease-out', style({
+            opacity: '0',
+            transform: 'scale(1.2)'
+          })),
+          animate('0.3s', style({
+            fontWeight: 'bold',
+            color: '#fff'
+          }))
+        ])
       ])
     ])
   ]
